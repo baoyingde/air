@@ -1,13 +1,21 @@
 package com.yang.mapper;
 
-import com.yang.pojo.District;
+import com.yang.pojo.Air;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 @Mapper
 public interface AirMapper {
-    @Select("select * from district")
-    List<District> findAll();
+
+    List<Air> findAirByDistrictId(Integer districtId);
+
+//    districtId = Integer   （必传项）
+//    monitorTime = yyyy-MM-dd  （必传项）
+//    pm10 = Integer  （必传项）
+//    pm25 = Integer  （必传项）
+//    monitoringStation = String  （必传项）
+    @Insert("insert into beijing_air.air(district_id, monitor_time, pm10, pm25, monitoring_station) values (#{districtId},#{monitorTime},#{pm10},#{pm25},#{monitoringStation})")
+    void insert(Air air);
 }
