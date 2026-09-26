@@ -43,5 +43,12 @@ public class AirController {
         airService.addAir(addAirParam);
         return Result.success();
     }
+    @PostMapping("/air/update")
+    public Result updateAir(Air air){
+        Integer id=air.getId();
+        if(id==null) return Result.error("参数不合法");
+        airService.updateById(air);
+        return Result.success();
+    }
 
 }

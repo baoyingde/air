@@ -40,4 +40,14 @@ public class AirServiceImpl implements AirService {
         BeanUtils.copyProperties(addAirParam,air);
         airMapper.insert(air);
     }
+
+    @Override
+    public void updateById(Air air) {
+        int count =airMapper.updateAir(air);
+        if(count!=1){
+            System.out.println("数据错误");
+            throw new RuntimeException("数据错误");
+        }
+
+    }
 }

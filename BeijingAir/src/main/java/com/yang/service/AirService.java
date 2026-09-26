@@ -13,4 +13,6 @@ public interface AirService {
     PageInfo findAirByDistrictId(Integer page, Integer pageSize, Integer districtId);
 
     void addAir(AddAirParam addAirParam);
+
+    void updateById(Air air);
 }
