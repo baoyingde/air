@@ -1,6 +1,7 @@
 package com.yang.mapper;
 
 import com.yang.pojo.Air;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
@@ -21,4 +22,6 @@ public interface AirMapper {
     void insert(Air air);
     //@Update("update beijing_air.air set district_id=#{districtId},monitor_time=#{monitorTime},pm10=#{pm10},pm25=#{pm25},monitoring_station=#{monitoringStation} where id=#{id}")
     int updateAir(Air air);
+    @Delete("delete from beijing_air.air where id=#{id}")
+    int deleteAir(Integer id);
 }

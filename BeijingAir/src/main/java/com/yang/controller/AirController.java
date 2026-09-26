@@ -9,10 +9,8 @@ import com.yang.service.AirService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
@@ -46,6 +44,15 @@ public class AirController {
         Integer id=air.getId();
         if(id==null) return Result.error("参数不合法");
         airService.updateById(air);
+        return Result.success();
+    }
+    @DeleteMapping("/air/delete/{id}")
+    public Result deleteAir(@PathVariable Integer id){
+        if(id ==null){
+            System.out.println("参数为空");
+            return Result.error("参数为空");
+        }
+        airService.deleteAir(id);
         return Result.success();
     }
 

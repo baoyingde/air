@@ -15,4 +15,6 @@ public interface AirService {
     void addAir(AddAirParam addAirParam);
 
     void updateById(Air air);
+
+    void deleteAir(Integer id);
 }

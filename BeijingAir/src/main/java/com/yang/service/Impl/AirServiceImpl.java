@@ -50,4 +50,13 @@ public class AirServiceImpl implements AirService {
         }
 
     }
+
+    @Override
+    public void deleteAir(Integer id) {
+        int count=airMapper.deleteAir(id);
+        if(count!=1){
+            System.out.println("数据错误");
+            throw new RuntimeException("数据错误");
+        }
+    }
 }
