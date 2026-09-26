@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yang.mapper.AirMapper">
+    <select id="findAirByDistrictId" resultType="com.yang.pojo.Air">
+        select air.*,district.name districtName from air,district where air.district_id=district.id
+        <if test="districtId !=null">
+            and district.id=#{districtId}
+        </if>
+    </select>
+</mapper>
